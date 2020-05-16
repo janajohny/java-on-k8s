@@ -34,7 +34,7 @@ spec:
               configMapKeyRef:
                 name: store-db-hostname-config
                 key: postgres_host
-        image: hillmerch/store-rest-api:v1
+        image: janajks/store-rest-api:v1
         imagePullPolicy: Always
 ---
 apiVersion: v1
