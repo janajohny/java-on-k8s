@@ -19,7 +19,7 @@
     </parent>
 
     <properties>
-        <java.version>12</java.version>
+        <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
@@ -59,12 +59,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.5.1</version>
                 <inherited>true</inherited>
                 <configuration>
-                    <release>12</release>
-                    <source>12</source>
-                    <target>12</target>
+                    <release>8</release>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
         </plugins>

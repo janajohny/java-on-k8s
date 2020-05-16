@@ -8,12 +8,37 @@ data:
   postgres_password: postgres
 ---
 apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: postgres-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /mnt/disks/
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - kmaster.example.com
+          - kworker1.example.com
+          - kworker2.example.com
+---
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: postgres-pv-claim
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: local-storage
   resources:
     requests:
       storage: 32Mi
